@@ -30,3 +30,4 @@ app.include_router(bookings.router, prefix="/api/bookings", tags=["bookings"])
 @app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "ok"}
+

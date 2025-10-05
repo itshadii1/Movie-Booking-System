@@ -55,7 +55,7 @@ class Movie(Base, TimestampMixin):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     title: Mapped[str] = mapped_column(String(200), nullable=False)
     description: Mapped[str] = mapped_column(Text, default="", nullable=False)
-    duration: Mapped[int] = mapped_column(Integer, nullable=False)  # minutes
+    duration: Mapped[int] = mapped_column(Integer, nullable=False) 
 
     shows: Mapped[List["Show"]] = relationship("Show", back_populates="movie", cascade="all, delete-orphan")
 

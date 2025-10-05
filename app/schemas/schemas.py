@@ -90,7 +90,6 @@ class MovieBase(BaseModel):
     description: str
     duration: int
 
-
 class MovieCreate(MovieBase):
     pass
 

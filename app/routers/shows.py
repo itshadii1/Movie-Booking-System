@@ -46,3 +46,20 @@ def delete(show_id: int, db: Session = Depends(get_db), current_user=Depends(aut
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Show not found")
     show_service.delete_show(db, show)
     return None
+
+
+@router.get("/{show_id}/bookings")
+def get_show_bookings(show_id: int, db: Session = Depends(get_db), current_user=Depends(auth_service.get_current_user)):
+    auth_service.ensure_admin(current_user)
+    from app.models.models import Booking
+    bookings = db.query(Booking).filter(Booking.show_id == show_id).all()
+    return [
+        {
+            "seat": booking.seat,
+            "user": {
+                "name": booking.user.name,
+                "email": booking.user.email
+            }
+        }
+        for booking in bookings
+    ]
