@@ -1,7 +1,7 @@
 Movie Booking System (FastAPI + React)
 
 What this is
-- A simple BookMyShow-style app: browse cinemas/shows, pick seats, and book.
+- A BookMyShow-style app: browse cinemas/shows, pick seats, and book.
 - Bonus: admin panel to manage movies/cinemas/screens/shows and view seat ownership.
 
 Tech stack
